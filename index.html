@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather</title>
+</head>
+<body>
+    <!-- Add any styling you like! -->
+
+    <!-- Optional: add a ‘loading’ component that displays from the time the form is submitted until the information comes back from the API -->
+
+    <div class="container">
+        <div class="main-container">
+            <h1 class="location">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </h1>
+            <h1 class="temp">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </h1>
+            <h2 class="conditions">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </h2>
+        </div>
+        <div class="grid-info">
+            <div class="wind">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </div>
+            <div class="feels-like">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </div>
+            <div class="high-temp">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </div>
+            <div class="min-temp">
+                <!-- POPULATED VIA JAVASCRIPT -->
+            </div>
+        </div>
+
+        <form id="userForm" action="">
+            <input type="search" name="searchLocation" id="searchLocation" placeholder="City or State...">
+            <button class="update" type="submit">Update</button>
+        </form>
+    </div>
+    <footer>Made with love by <a href="https://github.com/btramel">Brad Tramel</a>.</footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

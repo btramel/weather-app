@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: whitesmoke;
+    background-color:cornflowerblue;
+    font-size: 1rem;
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    position: relative;
+    background-image: url(imgs/clear.jpg);
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding-top: 2rem;
+}
+
+.main-container,
+.grid-info {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.grid-info {
+    display: grid;
+    width: 40vw;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    place-items: center;
+    font-size: .75rem;
+}
+.location,
+.temp {
+    font-size: 3rem;
+}
+
+input {
+    padding: .5rem;
+    outline: none;
+    font-size: .75rem;
+}
+
+.update {
+    padding: .5rem;
+    font-family: inherit;
+    color: rgb(73, 129, 233);
+}
+
+a,
+a:visited {
+    color: inherit;
+    text-decoration: underline;
+
+}
+
+footer {
+    font-size: .6rem;
+    bottom: 1rem;
+    width: max-content;
+    position: absolute;
+}
