@@ -1,5 +1,5 @@
 let units = '°F';
-let input = 'minneapolis';
+let input = 'honolulu';
 
 document.querySelector('.update').addEventListener('click', (e) => {
     e.preventDefault()
