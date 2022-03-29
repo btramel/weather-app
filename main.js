@@ -21,6 +21,8 @@ async function hitAPI(apiCall) {
     const fMin = weatherData.main.temp_min 
     const fConditions = weatherData.weather[0].main 
     const fWind = weatherData.wind.speed 
+
+    document.body.style.backgroundImage = `url(imgs/${fConditions}.jpg)`
     
     render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) 
 }
@@ -34,8 +36,7 @@ function render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) {
     const highTemp = document.querySelector('.high-temp')
     const minTemp = document.querySelector('.min-temp')
     const wind = document.querySelector('.wind')
-
-    document.body.style.backgroundImage = `url(imgs/${fConditions}.jpg)`
+    
     location.innerText = fLocation
     temp.innerText = `${Math.round(fTemp)}${units}` 
     conditions.innerText = fConditions
