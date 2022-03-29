@@ -92,11 +92,58 @@ input {
     color: gray;
 }
 
+.units-container {
+    display: flex;
+    gap: .5rem;
+    padding-top: 1rem;
+}
+
+input[type="checkbox"].toggle {
+    opacity: 0;
+    position: absolute;
+    left: -100000px;
+    top: -100000px;
+}
+
+input[type="checkbox"].toggle + label {
+    display: flex;
+    position: relative;
+    place-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"].toggle + label::before {
+    content: "";
+    width: 2rem;
+    height: 1rem;
+    background-color: rgb(194, 190, 190);
+    border-radius: 1rem;
+    margin-right: .25rem;
+}
+
+input[type="checkbox"].toggle + label::after {
+    position: absolute;
+    left: .1rem;
+    content: "";
+    width: .9rem;
+    height: .9rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+input[type="checkbox"].toggle:checked + label::after {
+    transform: translateX(100%);
+    background-color:white;
+}
+
+input[type="checkbox"].toggle:checked + label {
+    color: white;
+}
+
 a,
 a:visited {
     color: inherit;
     text-decoration: underline;
-
 }
 
 footer {
