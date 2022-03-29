@@ -10,8 +10,6 @@ document.querySelector('.update').addEventListener('click', (e) => {
     hitAPI(apiCall)
 })
 
-
-
 async function hitAPI(apiCall) {
     const response = await fetch(apiCall, {mode: 'cors'});
     const weatherData = await response.json();
@@ -46,8 +44,6 @@ function render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) {
     minTemp.innerText = `Low: ${Math.round(fMin)}${units}`
     wind.innerText = `Wind: ${Math.round(fWind)}mph`
 }
-
-// loading component?
 
 // celsius / fahrenheit toggle?
 
