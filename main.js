@@ -3,6 +3,7 @@ let input = 'minneapolis';
 
 document.querySelector('.update').addEventListener('click', (e) => {
     e.preventDefault()
+    document.querySelector('.location').innerText = 'Loading...'
     input = document.getElementById('searchLocation').value
     document.querySelector('#userForm').reset()
     hitAPI(input)
