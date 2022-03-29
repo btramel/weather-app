@@ -22,7 +22,12 @@ async function hitAPI(apiCall) {
     const fConditions = weatherData.weather[0].main 
     const fWind = weatherData.wind.speed 
 
-    document.body.style.backgroundImage = `url(imgs/${fConditions}.jpg)`
+    if ( fConditions.toLowerCase() === 'clouds' ) { document.body.style.backgroundImage = 'url(imgs/clouds.jpg)' }
+    else if ( fConditions.toLowerCase() === 'clear' ) { document.body.style.backgroundImage = 'url(imgs/clear.jpg)' }
+    else if ( fConditions.toLowerCase() === 'rain' ) { document.body.style.backgroundImage = 'url(imgs/rain.jpg)' }
+    else if ( fConditions.toLowerCase() === 'snow' ) { document.body.style.backgroundImage = 'url(imgs/snow.jpg)' }
+    else if ( fConditions.toLowerCase() === 'dust' ) { document.body.style.backgroundImage = 'url(imgs/dust.jpg)' }
+    else if ( fConditions.toLowerCase() === 'haze' ) { document.body.style.backgroundImage = 'url(imgs/haze.jpg)' }
     
     render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind) 
 }
