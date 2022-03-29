@@ -48,6 +48,7 @@ async function hitAPI() {
         render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius) 
     } catch (error) {
         console.error(error);
+        document.body.style.backgroundImage = 'url(imgs/space.jpg)'
         document.querySelector('.location').innerText = 'Try again!'
         document.querySelector('.temp').innerText = ' '
         document.querySelector('.conditions').innerText = 'Did you spell the location correctly?'

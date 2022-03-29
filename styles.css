@@ -17,6 +17,7 @@ body {
     position: relative;
     background-image: url(imgs/clear.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 button {
