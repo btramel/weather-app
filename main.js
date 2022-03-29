@@ -10,41 +10,49 @@ document.querySelector('.update').addEventListener('click', (e) => {
 })
 
 async function hitAPI() {
-    const response = await Promise.all([
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'}),
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'})
-    ]);
-    const weatherData = await Promise.all(response.map(r => r.json()))
+    try {    
+        const response = await Promise.all([
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'}),
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'})
+        ]);
+        const weatherData = await Promise.all(response.map(r => r.json()))
 
-    console.log(weatherData[0])
-    const fLocation = weatherData[0].name 
-    const fTemp = weatherData[0].main.temp 
+        console.log(weatherData[0])
+        const fLocation = weatherData[0].name 
+        const fTemp = weatherData[0].main.temp 
 
-    // fahrenheit values
-    const fFeels = weatherData[0].main.feels_like 
-    const fHigh = weatherData[0].main.temp_max 
-    const fMin = weatherData[0].main.temp_min 
-    const fConditions = weatherData[0].weather[0].main 
-    const fWind = weatherData[0].wind.speed 
+        // fahrenheit values
+        const fFeels = weatherData[0].main.feels_like 
+        const fHigh = weatherData[0].main.temp_max 
+        const fMin = weatherData[0].main.temp_min 
+        const fConditions = weatherData[0].weather[0].main 
+        const fWind = weatherData[0].wind.speed 
 
-    // celsius values
-    const fTempCelsius = weatherData[1].main.temp 
-    const fFeelsCelsius = weatherData[1].main.feels_like 
-    const fHighCelsius = weatherData[1].main.temp_max 
-    const fMinCelsius = weatherData[1].main.temp_min 
+        // celsius values
+        const fTempCelsius = weatherData[1].main.temp 
+        const fFeelsCelsius = weatherData[1].main.feels_like 
+        const fHighCelsius = weatherData[1].main.temp_max 
+        const fMinCelsius = weatherData[1].main.temp_min 
 
-    document.querySelector('.toggle').addEventListener('click', () => {
-        render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius)
-    })
+        document.querySelector('.toggle').addEventListener('click', () => {
+            render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius)
+        })
 
-    if ( fConditions.toLowerCase() === 'clouds' ) { document.body.style.backgroundImage = 'url(imgs/clouds.jpg)' }
-    else if ( fConditions.toLowerCase() === 'clear' ) { document.body.style.backgroundImage = 'url(imgs/clear.jpg)' }
-    else if ( fConditions.toLowerCase() === 'rain' ) { document.body.style.backgroundImage = 'url(imgs/rain.jpg)' }
-    else if ( fConditions.toLowerCase() === 'snow' ) { document.body.style.backgroundImage = 'url(imgs/snow.jpg)' }
-    else if ( fConditions.toLowerCase() === 'dust' ) { document.body.style.backgroundImage = 'url(imgs/dust.jpg)' }
-    else if ( fConditions.toLowerCase() === 'haze' || fConditions.toLowerCase() === 'fog' || fConditions.toLowerCase() === 'mist') { document.body.style.backgroundImage = 'url(imgs/haze.jpg)' }
-    
-    render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius) 
+        if ( fConditions.toLowerCase() === 'clouds' ) { document.body.style.backgroundImage = 'url(imgs/clouds.jpg)' }
+        else if ( fConditions.toLowerCase() === 'clear' ) { document.body.style.backgroundImage = 'url(imgs/clear.jpg)' }
+        else if ( fConditions.toLowerCase() === 'rain' ) { document.body.style.backgroundImage = 'url(imgs/rain.jpg)' }
+        else if ( fConditions.toLowerCase() === 'snow' ) { document.body.style.backgroundImage = 'url(imgs/snow.jpg)' }
+        else if ( fConditions.toLowerCase() === 'dust' ) { document.body.style.backgroundImage = 'url(imgs/dust.jpg)' }
+        else if ( fConditions.toLowerCase() === 'haze' || fConditions.toLowerCase() === 'fog' || fConditions.toLowerCase() === 'mist') { document.body.style.backgroundImage = 'url(imgs/haze.jpg)' }
+        
+        render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius) 
+    } catch (error) {
+        console.error(error);
+        document.querySelector('.location').innerText = 'Try again!'
+        document.querySelector('.temp').innerText = ' '
+        document.querySelector('.conditions').innerText = 'Did you spell the location correctly?'
+
+    }
 }
 
 function render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTempCelsius, fFeelsCelsius, fHighCelsius, fMinCelsius) {
