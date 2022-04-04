@@ -1,5 +1,5 @@
-let units = '°F';
-let input = 'honolulu';
+let units = localStorage.userUnit || '°F'
+let input = localStorage.userLocation || 'honolulu'
 
 document.querySelector('.update').addEventListener('click', (e) => {
     e.preventDefault()
@@ -9,6 +9,12 @@ document.querySelector('.update').addEventListener('click', (e) => {
     hitAPI(input)
 })
 
+// SAVE TO LOCAL STORAGE -- HALLELUJAH
+function save() {
+    localStorage.userUnit = units
+    localStorage.userLocation = input
+  }
+  
 async function hitAPI() {
     try {    
         const response = await Promise.all([
@@ -83,6 +89,7 @@ function render(fLocation, fTemp, fConditions, fFeels, fHigh, fMin, fWind, fTemp
         highTemp.innerText = `High: ${Math.round(fHigh)}${units}`
         minTemp.innerText = `Low: ${Math.round(fMin)}${units}`
     }
+    save()
 }
 
 hitAPI()
