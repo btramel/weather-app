@@ -1,7 +1,32 @@
 let units = localStorage.userUnit || '°F'
 let input = localStorage.userLocation || 'honolulu'
+let apiKey = '9bc24147cf5f3ff0e65062a6d7676996'
 
-document.querySelector('.update').addEventListener('click', (e) => {
+function getUserLocation() {
+    let lng;
+    let lat;
+    // Accesing Geolocation of User
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        // Storing Longitude and Latitude in variables
+        lng = position.coords.longitude;
+        lat = position.coords.latitude;
+        // Changing input var for api call
+        input = `&lat=${lat}&lon=${lng}`;
+  
+        hitAPI()
+          });
+    } else {
+        input = localStorage.userLocation || 'honolulu'
+        hitAPI()
+    }
+}
+
+window.addEventListener('load', () => {
+    getUserLocation()
+  });
+
+  document.querySelector('.update').addEventListener('click', (e) => {
     e.preventDefault()
     document.querySelector('.location').innerText = 'Loading...'
     input = document.getElementById('searchLocation').value
@@ -18,8 +43,8 @@ function save() {
 async function hitAPI() {
     try {    
         const response = await Promise.all([
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'}),
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=9bc24147cf5f3ff0e65062a6d7676996`, {mode: 'cors'})
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=imperial&appid=${apiKey}`, {mode: 'cors'}),
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${apiKey}`, {mode: 'cors'})
         ]);
         const weatherData = await Promise.all(response.map(r => r.json()))
 
