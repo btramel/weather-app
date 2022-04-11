@@ -6,14 +6,14 @@ APIs: OpenWeatherMap, Geolocation, Fetch<br>
 
 Features: Local storage, fahrenheit/celsius unit toggle, form validation, environment variables, conditional aesthetics
 
-I took on this project as part of The Odin Project's Javascript curriculum, but quickly added additional features and functionality to practice working with APIs and asynchronous code.
-
-The <a href="https://openweathermap.org/current">OpenWeatherMap API</a> provides a ton of data. Extracting the necessary information from response objects -- in this case, the current, high, and low temperatures in both fahrenheit and celsius; current wind speed; and current conditions -- was daunting to start, but great practice.
-<br>
+I took on this project as part of <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project's Javascript curriculum</a>, but quickly added additional features and functionality to practice working with APIs and asynchronous code. <br>
 
 ![weather-app](https://user-images.githubusercontent.com/66852498/162803944-0b2eb045-4b83-42fc-a75a-c0dc96bbefff.gif)
 
 <br>
+The <a href="https://openweathermap.org/current">OpenWeatherMap API</a> provides a ton of data. Extracting the necessary information from response objects -- in this case, the current, high, and low temperatures in both fahrenheit and celsius; current wind speed; and current conditions -- was daunting to start, but great practice.<br>
+<br>
+
 When implementing the unit toggle in Javascript, I decided to make two API calls using Promise.all() rather than hard-coding the conversion. Again, it served as great practice for <a href="https://github.com/btramel/AskBourdain">a later project</a> where, for instance, I found myself making simultaneous API calls to the Google Maps and Travel Advisor APIs.<br>
 <br>
 
