@@ -27,7 +27,7 @@ I had learned how to implement local storage <a href="https://github.com/btramel
 
 When the page renders, it chooses a background image to display based on the conditions. I'm happy with how this turned out. In the future, I may implement an array of images for the "clouds" condition, since it is the most commonly returned condition. If the user input doesn't return a location via the API, the background shows an image of space and prompts the user to try again.
 
-Finally, the last change I made to the project beyond the scope of the Odin Project requirements was environment variables to secure the API key from OpenWeatherMap. This was an extremely valuable use of time, considering how simple it was to learn how to implement them.
+Finally, I should point out that I did not use environment variables to secure the API key I acquired from OpenWeatherMap. I do know how to implement environment variables in React (see again: the AskBourdain project linked above), but chose not to spend an hour or two configuring webpack and everything else required to secure this particular API key. Thus it is contained in the global variable "apiKey."
 
 The project is hosted on Github Pages. <a href="https://btramel.github.io/weather-app/">Feel free to mess around with it!</a>
 
