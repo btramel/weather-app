@@ -1,10 +1,10 @@
 # Weather App
 
-Languages: Javascript, CSS, HTML<br>
+**Languages**: Javascript, CSS, HTML<br>
 
-APIs: OpenWeatherMap, Geolocation, Fetch<br>
+**APIs**: OpenWeatherMap, Geolocation, Fetch<br>
 
-Features: Local storage, fahrenheit/celsius unit toggle, form validation, environment variables, conditional aesthetics
+**Features**: Local storage, fahrenheit/celsius unit toggle, form validation, environment variables, conditional aesthetics
 
 I took on this project as part of <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project's Javascript curriculum</a>, but quickly added additional features and functionality to practice working with APIs and asynchronous code. <br>
 
